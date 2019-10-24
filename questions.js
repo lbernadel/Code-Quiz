@@ -53,8 +53,7 @@ function startTimer () {
 
     while (setTimer) {
         // display questions individually
-        makeQuestions(questions); 
-        
+        makeQuestions();
     };
 
 }
@@ -71,11 +70,10 @@ function setTimer(){
             // display score
         }
 
-
     }, 1000);
 }
 
-function makeQuestions (questions) {
+function makeQuestions () {
     var qList = quizDiv.createElement("ol"),
         qArray = JSON.parse(questions);
         
@@ -88,11 +86,16 @@ function makeQuestions (questions) {
     return qList;
 }
 
+function clearScores () {
+    event.stopPropagation;
+    localStorage.clear();
+}
 
-
-
-
-
-
+function quizRestart () {
+    event.stopPropagation;
+    window.location = "/index.html";
+}
 
 startBtn.addEventListener("click", startTimer);
+clearBtn.addEventListener("click", clearScores);
+redoBtn.addEventListener("click", quizRestart);
