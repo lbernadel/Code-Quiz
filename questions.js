@@ -30,3 +30,41 @@ var questions = [
         answer: "Yes"
     },
 ];
+
+var startBtn = document.getElementsByClassName("startBtn"),
+    redoBtn = document.getElementsByClassName("redoBtn"),
+    clearBtn = document.getElementsByClassName("clearBtn"),
+    timerEl = document.getElementById("timer"),
+    submitScoreEl = document.getElementsByClassName("submit-score"),
+    userScore = document.getElementById("user-score"),
+    newScore = document.getElementsByClassName("new-score"),
+    submitBtn = document.querySelector("button.submitBtn"),
+    secondsLeft = 90;
+
+function setTimer(){
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        timerEl.textContent = "Timer: " + secondsLeft;
+
+        if (secondsLeft === 0) {
+            // display option to enter name to scoreboard
+            // 
+        }
+
+
+    }, 1000);
+}
+
+function startTimer () {
+    setTimer();
+// display questions
+}
+
+
+
+
+
+
+
+
+startBtn.addEventListener("click", startTimer);
