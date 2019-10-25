@@ -26,7 +26,7 @@ var questions = [
     },
     {
         title: "Is JS case-sensitive?",
-        choices: ["Yes", "No"],
+        choices: ["Yes", "No", "I have no clue", "Only when it feels like it."],
         answer: "Yes"
     },
 ];
