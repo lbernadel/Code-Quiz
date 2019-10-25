@@ -3,7 +3,7 @@
 ![Code Quiz Screenshot](code-quiz.JPG)
 
 ## Description
-The purpose of this assignment was to create a timer-based coding assessment using vanilla JavaScript.
+The purpose of this assignment was to create a timer-based coding assessment using vanilla JavaScript that behaves like so:
 
 The application has a few multiple choice questions and the ability to store top scores on the user's device. The number of questions decides the length of time for the quiz (15 seconds/question) once the user clicks "Start", but they are penalized 10 seconds if they answer a question incorrectly. The final score is based on the amount remaining on the timer.
 
@@ -34,6 +34,9 @@ I understood how to piece together the front-end components and organize them bu
 - Replacing child elements
   - https://www.geeksforgeeks.org/remove-all-the-child-elements-of-a-dom-node-in-javascript/
   - https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
+
+- Evaluating User Answer
+  - https://www.w3schools.com/jsref/prop_node_nodevalue.asp
 
 - Redirecting Pages
   - 

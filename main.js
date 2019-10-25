@@ -12,16 +12,31 @@ var startBtn = document.getElementById("startBtn"),
 
 
 function startTimer () {
-    // event.stopPropagation;
-// swap welcome msg w/ questions
+    // swap welcome msg w/ questions
     document.getElementById("home").classList.add('d-none');
     document.getElementById("quiz").classList.remove('d-none');
 
-// timer set and begins 90s countdown
+    // timer set and begins 90s countdown
     setTimer();
-    // display questions individually
+    // create questions to display
     makeQuestions();
 
+    // evaluation of user's answer choices
+    answerBtn.addEventListener("click", function(){
+        if (answerBtn === questions[q].answer) {
+           
+                document.getElementById("quiz").createElement(p).appendChild.textContent = "Correct!";
+                questions++;
+            } else {
+                document.getElementById("quiz").createElement(p).appendChild.textContent = "Sorry, that's incorrect.";
+                secondsLeft - 10;
+                questions++;
+
+            
+   
+
+        }
+    });
 }
 
 function setTimer(){
@@ -38,6 +53,7 @@ function setTimer(){
 
     }, 1000);
 }
+
 function makeQuestions (){    
     questionHead.textContent = questions[0].title;
     answerChoices.innerHTML = "";
@@ -61,7 +77,7 @@ function quizRestart () {
     window.location.pathname = "/index.html";
 }
 
-// Event Listeners for Buttons
+// Event Listeners for Main Buttons
 startBtn.addEventListener("click", startTimer);
 clearBtn.addEventListener("click", clearScores);
 restartBtn.addEventListener("click", quizRestart);
