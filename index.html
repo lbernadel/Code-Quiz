@@ -23,7 +23,7 @@
                 <div class="col-10 col-lg-8 text-center">
                     <h1>JavaScript (JS) Mini Quiz</h1> <br>
                     <p>Try to answer the following questions about coding with JavaScript in 90 seconds. <br>
-                    <strong>NOTE:</strong> If you answer incorrectly, you'll lose some time (15 seconds to be exact)!</p> <br>
+                    <strong>NOTE:</strong> If you answer incorrectly, you'll lose some time (10 seconds to be exact)!</p> <br>
                     <button type="button" id="startBtn" class="btn btn-info btn-lg">START</button>
                 </div>
             </div>
@@ -32,14 +32,15 @@
         <!-- Q&A -->
         <div class="container mt-5 d-none" id="quiz">
             <div class="row justify-content-center mt-5 pt-3 pb-3">
-                <div class="col-10 col-lg-8">
+                <div class="col-10 col-lg-8" id="QA-block">
                     <h3 id="questions" class="mb-4">QUESTION</h3>
                     <ul id="answers" class="list-unstyled">
-                        <li>A) </li>
-                        <li>B) </li>
-                        <li>C) </li>
-                        <li>D) </li>
+                        <li class="answerChoice">A) </li>
+                        <li class="answerChoice">B) </li>
+                        <li class="answerChoice">C) </li>
+                        <li class="answerChoice">D) </li>
                     </ul>
+                    <p class="feedback"></p>
                 </div>
             </div>
         </div>
