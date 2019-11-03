@@ -1,7 +1,7 @@
 var questions = [
     {
-        title: "Inside which tag of an HTML document do you put the JavaScript?",
-        choices: ["<java>", "<body>", "<script>", "<head>"],
+        title: "Primarily, inside which tag of an HTML document do you put the JavaScript?",
+        choices: ["<java>", "<body>", "<script>", "<img>"],
         answer: "<script>"
     },
     {
