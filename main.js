@@ -100,7 +100,7 @@ answerChoices.addEventListener("click", function (event) {
         pEl.innerHTML = "Sorry, that's incorrect.";
         setTimeout(hideFeedback,1000);
         makeQuestions();
-        secondsLeft - 10;
+        secondsLeft = secondsLeft - 10;
         showFeedback();
     }
 });
