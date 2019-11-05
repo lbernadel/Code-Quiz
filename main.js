@@ -1,12 +1,10 @@
 var startBtn = document.getElementById("startBtn");
-var restartBtn = document.querySelector("button.restartBtn");
-var clearBtn = document.querySelector("button.clearBtn");
 var submitBtn = document.querySelector("button.submitBtn")
 var secondsLeft = (questions.length * 15 + 1);
 var timerEl = document.getElementById("timer");
 var submitScoreEl = document.querySelector("#submit-score");
 var userScore = document.getElementById("user-score");
-var newScore = document.getElementsByClassName("new-score");
+var newScore = document.getElementById("new-score").value;
 var questionHead = document.getElementById("questions");
 var answerChoices = document.getElementById("answers");
 
@@ -32,15 +30,10 @@ function setTimer() {
         secondsLeft--;
         timerEl.textContent = "Time: " + secondsLeft;
 
-        if (secondsLeft === 0 || questionNumber > questions.length) {
+        if (secondsLeft === 0 || questionNumber === questions.length) {
+            setTimeout(displayScore, 1250);
             clearInterval(countdown);
-            // display option to enter name to scoreboard
-            document.getElementById("quiz").classList.add('d-none');
-            document.getElementById("submit-score").classList.remove('d-none');
-
-            displayScore();
         }
-        
 
     }, 1000);
 }
@@ -62,20 +55,25 @@ function makeQuestions() {
     }
 }
 
+// display option to enter name to scoreboard
+function displayScore() {
+    document.getElementById("quiz").classList.add('d-none');
+    document.getElementById("submit-score").classList.remove('d-none');
+    userScore.textContent = "Your score is " + secondsLeft + ".";
+}
+
 function clearScores() {
     event.stopPropagation;
     localStorage.clear();
 }
  
-function quizRestart() {
-    // event.stopPropagation;
-    window.history.go(-1);
-}
-
 // Event Listeners for Main Buttons
 startBtn.addEventListener("click", startTimer);
-// clearBtn.addEventListener("click", clearScores);
-// restartBtn.addEventListener("click", quizRestart);
+submitBtn.addEventListener("click", function (event) {
+    event.stopPropagation();
+    localStorage.setItem(newScore, secondsLeft)
+    window.location.href = './highscores.html'
+})
 
 function hideFeedback(){
     var pEl= document.getElementsByClassName("feedback")[0]
