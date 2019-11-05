@@ -9,12 +9,16 @@ The application has a few multiple choice questions and the ability to store top
 
 At the end of the quiz (when the user answers all questions or time is up), upon viewing their score, the user is able to enter their initials to add their score to the High Scores list. Once they enter their initials, the scoreboard will appear with an option to clear the board or restart the quiz.
 
-Relevant new subject matter from the week: Web APIs, Data Persistence
+Relevant new subject matter from the week: Web APIs, Data Persistence, JS Timers
 
 ## Challenges
 This entire activity was very difficult. I really don't understand what I'm doing with the DOM and Local storage and it took forever just to figure out how to get my timer working. I didn't understand how to display the questions individually or if I needed to use JSON methods so I couldn't move forward for the longest time. I tried looking at online sources and class examples multiple times and was still confused after 2 days with several hours of the same cycle. I feel like my comprehension is lagging compared to the pace of this subject matter.
 
 I understood how to piece together the front-end components and organize them but not how to combine that with the functionality on the back-end.
+
+**Update**: About two weeks later, I understood more about how to organize my functions and utilize click handlers to move through the questions while evaluating user choices properly (thanks to my TA, Alex). With the help of my tutor, Phil, I then came to understand the difference between the JS timer functions. Honestly, it still seemed complex in the sense of the amount of moving parts, but the structure made more sense to me.
+
+The only thing I still don't fully understand is how to properly interact with Local Storage.
 
 ### Sources
 - textContent vs innerHTML/innerText 
@@ -39,7 +43,10 @@ I understood how to piece together the front-end components and organize them bu
   - https://www.w3schools.com/jsref/prop_node_nodevalue.asp
 
 - Redirecting Pages
-  - 
+  - https://developer.mozilla.org/en-US/docs/Web/API/History_API
 
 - Local Storage
-  - 
+  - https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+
+- Timers
+  - https://medium.com/@monica1109/scheduling-settimeout-and-setinterval-ca2ee50cd99f

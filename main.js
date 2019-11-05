@@ -3,11 +3,10 @@ var submitBtn = document.querySelector("button.submitBtn")
 var secondsLeft = (questions.length * 15 + 1);
 var timerEl = document.getElementById("timer");
 var submitScoreEl = document.querySelector("#submit-score");
-var userScore = document.getElementById("user-score");
-var newScore = document.getElementById("new-score").value;
+var userScoreEl = document.getElementById("user-score");
+var userNameInput = document.getElementById("userName").value;
 var questionHead = document.getElementById("questions");
 var answerChoices = document.getElementById("answers");
-
 
 var questionNumber = -1;
 var answer;
@@ -31,10 +30,9 @@ function setTimer() {
         timerEl.textContent = "Time: " + secondsLeft;
 
         if (secondsLeft === 0 || questionNumber === questions.length) {
-            setTimeout(displayScore, 1250);
             clearInterval(countdown);
+            setTimeout(displayScore, 500);
         }
-
     }, 1000);
 }
 
@@ -59,21 +57,31 @@ function makeQuestions() {
 function displayScore() {
     document.getElementById("quiz").classList.add('d-none');
     document.getElementById("submit-score").classList.remove('d-none');
-    userScore.textContent = "Your score is " + secondsLeft + ".";
+    userScoreEl.textContent = "Your final score is " + secondsLeft + ".";
 }
 
-function clearScores() {
-    event.stopPropagation;
-    localStorage.clear();
-}
- 
 // Event Listeners for Main Buttons
 startBtn.addEventListener("click", startTimer);
 submitBtn.addEventListener("click", function (event) {
     event.stopPropagation();
-    localStorage.setItem(newScore, secondsLeft)
+    addScore();
+    
     window.location.href = './highscores.html'
-})
+});
+
+function addScore () {
+    
+    if (localStorage.getItem("userName") === null && localStorage.getItem("lastScore") === null){
+        Name = [];
+        Score = [];
+    }else {
+        Name = JSON.parse(localStorage.getItem("userName"));
+        Score = JSON.parse(localStorage.getItem("lastScore"));
+    }
+
+    localStorage.setItem("userName", JSON.stringify(userNameInput));
+    localStorage.setItem("lastScore", JSON.stringify(secondsLeft));
+}
 
 function hideFeedback(){
     var pEl= document.getElementsByClassName("feedback")[0]
@@ -92,13 +100,12 @@ answerChoices.addEventListener("click", function (event) {
     if (answer === event.target.textContent) {   
         pEl.innerHTML = "Correct!";
         setTimeout(hideFeedback,1000);
-        makeQuestions();
         showFeedback();   
     } else {
         pEl.innerHTML = "Sorry, that's incorrect.";
         setTimeout(hideFeedback,1000);
-        makeQuestions();
         secondsLeft = secondsLeft - 10;
         showFeedback();
-    }
+    }    
+    makeQuestions();
 });
