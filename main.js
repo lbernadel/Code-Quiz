@@ -4,7 +4,7 @@ var secondsLeft = (questions.length * 15 + 1);
 var timerEl = document.getElementById("timer");
 var submitScoreEl = document.querySelector("#submit-score");
 var userScoreEl = document.getElementById("user-score");
-var userNameInput = document.getElementById("userName").value;
+var userNameInput;
 var questionHead = document.getElementById("questions");
 var answerChoices = document.getElementById("answers");
 
@@ -70,17 +70,21 @@ submitBtn.addEventListener("click", function (event) {
 });
 
 function addScore () {
+    userNameInput = document.getElementById("userName").value
     
-    if (localStorage.getItem("userName") === null && localStorage.getItem("lastScore") === null){
-        Name = [];
-        Score = [];
-    }else {
-        Name = JSON.parse(localStorage.getItem("userName"));
-        Score = JSON.parse(localStorage.getItem("lastScore"));
-    }
+    // create a new object with name and score keys
+var newScore = {
+        name: userNameInput,
+        score: secondsLeft
+    };
+    // check if there are scores in local storage first(get it)
+    //if not, make a new/blank array
+    var highScores = JSON.parse(localStorage.getItem("highScores") || "[]");
+    // push object into score array
+    highScores.push(newScore)
+    // turn objects into an array of strings then put it into local storage
+    localStorage.setItem("highScores", JSON.stringify(highScores));
 
-    localStorage.setItem("userName", JSON.stringify(userNameInput));
-    localStorage.setItem("lastScore", JSON.stringify(secondsLeft));
 }
 
 function hideFeedback(){
