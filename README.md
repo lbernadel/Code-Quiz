@@ -18,7 +18,7 @@ I understood how to piece together the front-end components and organize them bu
 
 **Update**: About two weeks later, I understood more about how to organize my functions and utilize click handlers to move through the questions while evaluating user choices properly (thanks to my TA, Alex). With the help of my tutor, Phil, I then came to understand the difference between the JS timer functions. Honestly, it still seemed complex in the sense of the amount of moving parts, but the structure made more sense to me.
 
-The only thing I still don't fully understand is how to properly interact with Local Storage.
+The only thing I still don't fully understand is how to properly interact with Local Storage, but thankfully my other TA, Cassidy, helped with that. This assignment was actually incredibly challenging.
 
 ### Sources
 - textContent vs innerHTML/innerText 
